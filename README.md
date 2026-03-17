@@ -2,7 +2,7 @@
 
 > A Smart City Parking Management System
 
-ParkVille is a full-stack smart parking platform that enables drivers to find, reserve, and manage parking spots in real time. It features a **Java Spring Boot** REST backend, a **JavaScript** frontend, and a **Python** simulation/detection module — all backed by a **MySQL** relational database.
+ParkVille is a full-stack smart parking platform that enables drivers to find, reserve, and manage parking spots in real time. It features a **Java Spring Boot** REST backend, a **React** frontend, and a **Python** simulation/detection module — all backed by a **MySQL** relational database.
 
 ---
 
@@ -11,7 +11,7 @@ ParkVille is a full-stack smart parking platform that enables drivers to find, r
 | Layer      | Technology                          |
 |------------|-------------------------------------|
 | Backend    | Java 23, Spring Boot, Maven         |
-| Frontend   | JavaScript, CSS, HTML (Vite/npm)    |
+| Frontend   | React, JavaScript, CSS (Vite/npm)   |
 | Database   | MySQL                               |
 | Simulation | Python                              |
 
@@ -22,7 +22,7 @@ ParkVille is a full-stack smart parking platform that enables drivers to find, r
 ```
 ParkVille/
 ├── backend/        # Spring Boot REST API
-├── frontend/       # JS frontend (Vite)
+├── frontend/       # React frontend (Vite)
 ├── .gitignore
 ├── LICENSE
 └── README.md
@@ -60,11 +60,8 @@ Open your MySQL shell and run:
 
 ```sql
 CREATE DATABASE parkdb;
-
 CREATE USER 'park_admin'@'localhost' IDENTIFIED BY 'Admin@123';
-
 GRANT ALL PRIVILEGES ON parkdb.* TO 'park_admin'@'localhost';
-
 FLUSH PRIVILEGES;
 ```
 
@@ -190,13 +187,13 @@ All endpoints are prefixed with `/api`. The backend runs on `http://localhost:80
 
 ### 📅 Reservations
 
-| Method | Endpoint                         | Description                        | Auth Required |
-|--------|----------------------------------|------------------------------------|---------------|
-| GET    | `/api/reservations`              | Get all reservations (Admin)       | Yes (Admin)   |
-| GET    | `/api/reservations/{id}`         | Get a specific reservation         | Yes           |
-| GET    | `/api/reservations/user/{userId}`| Get all reservations for a user    | Yes           |
-| POST   | `/api/reservations`              | Create a new reservation           | Yes           |
-| DELETE | `/api/reservations/{id}`         | Cancel a reservation               | Yes           |
+| Method | Endpoint                          | Description                        | Auth Required |
+|--------|-----------------------------------|------------------------------------|---------------|
+| GET    | `/api/reservations`               | Get all reservations (Admin)       | Yes (Admin)   |
+| GET    | `/api/reservations/{id}`          | Get a specific reservation         | Yes           |
+| GET    | `/api/reservations/user/{userId}` | Get all reservations for a user    | Yes           |
+| POST   | `/api/reservations`               | Create a new reservation           | Yes           |
+| DELETE | `/api/reservations/{id}`          | Cancel a reservation               | Yes           |
 
 **Create Reservation — Request Body:**
 ```json
